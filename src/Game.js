@@ -51,15 +51,19 @@ var Game = function Game() {
         context.strokeStyle = 'black';
         context.lineWidth = 2;
         context.stroke();
+
+        document.getElementById("generation").innerHTML = generation;
     }
 
     this.clickCell = function(event) {
-        var coords = canvas.relMouseCoords(event);
         // Identify the clicked cell based on coords
+        var coords = canvas.relMouseCoords(event);
         var row = Math.floor(coords.y / cellHeight);
         var column = Math.floor(coords.x / cellWidth);
 
+        // Tell the board that the cell was clicked
         board.clickCell(row, column);
+        // Human intervention means we're starting a new seed so reset generation
         generation = 0;
         renderBoard();
     }
