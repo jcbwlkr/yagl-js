@@ -1,34 +1,27 @@
 var Game = function Game() {
     var game    = this;
     var inited  = false;
-    var canvas  = document.getElementById("board");
+    var canvas = document.getElementById("board");
     var context = canvas.getContext('2d');
-
-    var generation = 0;
 
     var cellHeight;
     var cellWidth;
     var board;
+    var generation;
+
 
     this.init = function(width, height) {
-        if(inited) {
-            return;
-        }
-        inited = true;
-
-        board = new Board(width, height);
-        canvas = document.getElementById("board");
-        context = canvas.getContext('2d');
-
-        canvas.addEventListener("mousedown", game.clickCell, false);
+        // Starting a new game
+        generation = 0;
+        board      = new Board(width, height);
         cellHeight = canvas.height / board.getHeight();
-        cellWidth = canvas.width / board.getWidth();
+        cellWidth  = canvas.width / board.getWidth();
 
         renderBoard();
     }
 
     /**
-     * Draws the initial state of the board
+     * Draws the board
      */
     var renderBoard = function() {
         var y = 0;
@@ -61,10 +54,15 @@ var Game = function Game() {
         var row = Math.floor(coords.y / cellHeight);
         var column = Math.floor(coords.x / cellWidth);
 
+        console.log("click " + row + " " + column);
+
         // Tell the board that the cell was clicked
         board.clickCell(row, column);
+
         // Human intervention means we're starting a new seed so reset generation
         generation = 0;
+
+        // Redraw the board
         renderBoard();
     }
 
