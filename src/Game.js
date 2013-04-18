@@ -67,5 +67,6 @@ var Game = function Game() {
     this.evolve = function() {
         board.evolve();
         ++generation;
+        renderBoard();
     }
 };
