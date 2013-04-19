@@ -17,6 +17,8 @@ var Game = function Game() {
         cellHeight = canvas.height / board.getHeight();
         cellWidth  = canvas.width / board.getWidth();
 
+        console.log("Dims are h:" + cellHeight + " w:" + cellWidth );
+
         renderBoard();
     }
 
@@ -31,6 +33,7 @@ var Game = function Game() {
                 context.beginPath();
                 context.rect(x, y, cellWidth, cellHeight);
                 context.strokeStyle = 'grey';
+                context.lineWidth = 1;
                 context.fillStyle = cell.isAlive() ? 'black' : 'white';
                 context.fill();
                 context.stroke();
@@ -54,8 +57,6 @@ var Game = function Game() {
         var row = Math.floor(coords.y / cellHeight);
         var column = Math.floor(coords.x / cellWidth);
 
-        console.log("click " + row + " " + column);
-
         // Tell the board that the cell was clicked
         board.clickCell(row, column);
 
@@ -69,6 +70,12 @@ var Game = function Game() {
     this.evolve = function() {
         board.evolve();
         ++generation;
+        renderBoard();
+    }
+
+    this.populate = function() {
+        generation = 0;
+        board.populate();
         renderBoard();
     }
 };

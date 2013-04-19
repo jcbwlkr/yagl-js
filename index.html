@@ -7,6 +7,7 @@
     <script src="src/Board.js"></script>
     <script src="src/Cell.js"></script>
     <script src="run.js"></script>
+    <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
     <div id="container">
@@ -14,12 +15,15 @@
         <h2>Yet Another Game of Life</h2>
         <div id="controls">
             <label for="width">Board Width</label>
-            <input type="number" min="3" max="100" name="width" id="width" value="20" />
+            <input type="number" min="3" max="400" name="width" id="width" value="200" />
             <label for="height">Board Height</label>
-            <input type="number" min="3" max="100" name="height" id="height" value="20" />
-            <p>Generation <span id="generation"></span>.</p>
+            <input type="number" min="3" max="400" name="height" id="height" value="100" />
+            <input type="button" id="evolve" value="Evolve" />
+            <input type="button" id="playPause" value="Play" />
+            <input type="button" id="populate" value="Populate" />
+            Generation <span id="generation"></span>.
         </div>
-        <canvas id="board" width="500" height="500"> </canvas>
+        <canvas id="board" width="1000" height="500"> </canvas>
     </div>
 </body>
 </html>

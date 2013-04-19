@@ -11,8 +11,8 @@ var Board = function Board(width_in, height_in) {
     var cells = new Array()
     for(var row = 0; row < height; ++row) {
         cells[row] = new Array();
-        for(var j = 0; j < width; ++j) {
-            cells[row][j] = new Cell();
+        for(var col = 0; col < width; ++col) {
+            cells[row][col] = new Cell();
         }
     }
 
@@ -109,4 +109,17 @@ var Board = function Board(width_in, height_in) {
         cells[row][column].toggle();
     }
 
+    this.populate = function() {
+        var chance = 0.50;
+        cells.forEach(function(row, rowNum) {
+            row.forEach(function(cell, colNum) {
+                if ( Math.random() <= chance ) {
+                    cell.willLive();
+                } else {
+                    cell.willDie();
+                }
+                cell.evolve();
+            });
+        });
+    }
 };

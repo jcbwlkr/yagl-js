@@ -3,3 +3,9 @@
 
 #board {
 }
+
+#controls {
+    position: absolute;
+    top: 2em;
+    left: 400px;
+}
