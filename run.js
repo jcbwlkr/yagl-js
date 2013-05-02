@@ -28,6 +28,7 @@ function init() {
     document.getElementById("playPause").addEventListener("click", play, false);
     document.getElementById("evolve").addEventListener("click", game.evolve, false);
     document.getElementById("populate").addEventListener("click", game.populate, false);
+    document.getElementById("clear").addEventListener("click", newGame, false);
 
     newGame();
 }

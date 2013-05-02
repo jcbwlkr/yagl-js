@@ -48,7 +48,7 @@ var Game = function Game() {
         context.lineWidth = 2;
         context.stroke();
 
-        document.getElementById("generation").innerHTML = generation;
+        document.getElementById("generation-number").innerHTML = generation;
     }
 
     this.clickCell = function(event) {

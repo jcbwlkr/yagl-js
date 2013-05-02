@@ -13,15 +13,18 @@
     <div id="container">
         <h1>yagl-js</h1>
         <h2>Yet Another Game of Life</h2>
+        <div id="generation">
+            Generation <span id="generation-number"></span>.
+        </div>
         <div id="controls">
-            <label for="width">Board Width</label>
-            <input type="number" min="3" max="400" name="width" id="width" value="200" />
-            <label for="height">Board Height</label>
-            <input type="number" min="3" max="400" name="height" id="height" value="100" />
+            <label for="width" >Board Width</label>&nbsp;<input  type="number" min="3" max="400" name="width"  id="width"  value="200" />
+            <label for="height">Board Height</label>&nbsp;<input type="number" min="3" max="400" name="height" id="height" value="100" />
+        </div>
+        <div id="buttons">
             <input type="button" id="evolve" value="Evolve" />
             <input type="button" id="playPause" value="Play" />
             <input type="button" id="populate" value="Populate" />
-            Generation <span id="generation"></span>.
+            <input type="button" id="clear" value="Clear" />
         </div>
         <canvas id="board" width="1000" height="500"> </canvas>
     </div>
