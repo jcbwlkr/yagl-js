@@ -7,7 +7,7 @@ function newGame() {
 function play() {
     intervalId = window.setInterval(game.evolve, 200);
     var btn = document.getElementById("playPause");
-    btn.value = "Pause";
+    btn.innerHTML = "Pause <i class='icon-pause icon-white'></i>";
     btn.removeEventListener("click", play, false);
     btn.addEventListener("click", pause, false);
 }
@@ -15,9 +15,22 @@ function play() {
 function pause() {
     window.clearInterval(intervalId);
     var btn = document.getElementById("playPause")
-    btn.value = "Play";
+    btn.innerHTML = "Play <i class='icon-play icon-white'></i>";
     btn.addEventListener("click", play, false);
     btn.removeEventListener("click", pause, false);
+}
+
+function resize() {
+    var width = document.getElementById("play-area").offsetWidth - 20;
+    var height = document.documentElement.clientHeight - document.getElementById("titles").offsetHeight - 20;
+
+    console.log(width);
+    // Sane minimums
+    width  = Math.max(width, 240);
+    height = Math.max(height, 240);
+
+    console.log("Resizing here, boss: " + width + " " + height);
+    game.resizeBoard(width, height);
 }
 
 function init() {
@@ -30,7 +43,12 @@ function init() {
     document.getElementById("populate").addEventListener("click", game.populate, false);
     document.getElementById("clear").addEventListener("click", newGame, false);
 
+    window.onresize = function(event) {
+        resize();
+    }
+
     newGame();
+    resize();
 }
 
 document.addEventListener("DOMContentLoaded", init, false);

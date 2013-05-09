@@ -1,7 +1,6 @@
 var Game = function Game() {
     var game    = this;
-    var inited  = false;
-    var canvas = document.getElementById("board");
+    var canvas  = document.getElementById("board");
     var context = canvas.getContext('2d');
 
     var cellHeight;
@@ -14,10 +13,13 @@ var Game = function Game() {
         // Starting a new game
         generation = 0;
         board      = new Board(width, height);
-        cellHeight = canvas.height / board.getHeight();
-        cellWidth  = canvas.width / board.getWidth();
 
-        console.log("Dims are h:" + cellHeight + " w:" + cellWidth );
+        renderBoard();
+    }
+
+    this.resizeBoard = function(width, height) {
+        canvas.width  = width;
+        canvas.height = height;
 
         renderBoard();
     }
@@ -26,6 +28,9 @@ var Game = function Game() {
      * Draws the board
      */
     var renderBoard = function() {
+        cellHeight = canvas.height / board.getHeight();
+        cellWidth  = canvas.width / board.getWidth();
+
         var y = 0;
         board.getCells().forEach(function(row) {
             var x = 0;
