@@ -2,12 +2,8 @@
 <html>
 <head>
     <title>yagl-js</title>
-    <script src="lib/canvasRelMouseCoords.plugin.js"></script>
-    <script src="src/Game.js"></script>
-    <script src="src/Board.js"></script>
-    <script src="src/Cell.js"></script>
-    <script src="run.js"></script>
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div id="container">
@@ -20,13 +16,19 @@
             <label for="width" >Board Width</label>&nbsp;<input  type="number" min="3" max="400" name="width"  id="width"  value="200" />
             <label for="height">Board Height</label>&nbsp;<input type="number" min="3" max="400" name="height" id="height" value="100" />
         </div>
-        <div id="buttons">
-            <input type="button" id="evolve" value="Evolve" />
-            <input type="button" id="playPause" value="Play" />
-            <input type="button" id="populate" value="Populate" />
-            <input type="button" id="clear" value="Clear" />
+        <div id="buttons" class="btn-group">
+            <button class="btn btn-warning" id="populate" >Populate</button>
+            <button class="btn btn-success" id="evolve" >Evolve</button>
+            <button class="btn btn-success" id="playPause" >Play</button>
+            <button class="btn btn-danger" id="clear" >Clear</button>
         </div>
         <canvas id="board" width="1000" height="500"> </canvas>
     </div>
+    <script src="lib/bootstrap.min.js" type="text/javascript"></script>
+    <script src="lib/canvasRelMouseCoords.plugin.js"></script>
+    <script src="src/Game.js"></script>
+    <script src="src/Board.js"></script>
+    <script src="src/Cell.js"></script>
+    <script src="run.js"></script>
 </body>
 </html>
