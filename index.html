@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>yagl-js</title>
     <link rel="stylesheet" href="styles/bootstrap.css">
@@ -7,28 +7,42 @@
 </head>
 <body>
     <div id="container">
-        <h1>yagl-js</h1>
-        <h2>Yet Another Game of Life</h2>
-        <div id="generation">
-            Generation <span id="generation-number"></span>.
+        <div class="row">
+            <div class="span12">
+                <h1>yagl-js</h1>
+                <h2>Yet Another Game of Life</h2>
+            </div>
         </div>
-        <div id="controls">
-            <label for="width" >Board Width</label>&nbsp;<input  type="number" min="3" max="400" name="width"  id="width"  value="200" />
-            <label for="height">Board Height</label>&nbsp;<input type="number" min="3" max="400" name="height" id="height" value="100" />
+        <div class="row">
+            <div class="span4">
+                <div id="generation">
+                    Generation <span id="generation-number"></span>.
+                </div>
+                <div id="controls">
+                    <div class="input-prepend">
+                        <span class="add-on">Board Width</span>
+                        <input  type="number" class="input-mini" min="3" max="400" name="width"  id="width"  value="20" />
+                    </div>
+                    <div class="input-prepend">
+                        <span class="add-on">Board Height</span>
+                        <input type="number" class="input-mini" min="3" max="400" name="height" id="height" value="10" />
+                    </div>
+                </div>
+                <button class="input-large btn btn-primary" id="populate" >Populate <i class="icon-random icon-white"></i></button>
+                <button class="input-large btn btn-danger"  id="clear" >Clear <i class="icon-remove icon-white"></i></button>
+                <button class="input-large btn btn-success" id="evolve" >Evolve <i class="icon-step-forward icon-white"></i></button>
+                <button class="input-large btn btn-success" id="playPause" >Play <i class="icon-play icon-white"></i></button>
+            </div>
+            <div class="span8">
+                <canvas id="board" > </canvas>
+            </div>
         </div>
-        <div id="buttons" class="btn-group">
-            <button class="btn btn-warning" id="populate" >Populate</button>
-            <button class="btn btn-success" id="evolve" >Evolve</button>
-            <button class="btn btn-success" id="playPause" >Play</button>
-            <button class="btn btn-danger" id="clear" >Clear</button>
-        </div>
-        <canvas id="board" width="1000" height="500"> </canvas>
     </div>
-    <script src="lib/bootstrap.min.js" type="text/javascript"></script>
-    <script src="lib/canvasRelMouseCoords.plugin.js"></script>
-    <script src="src/Game.js"></script>
-    <script src="src/Board.js"></script>
-    <script src="src/Cell.js"></script>
-    <script src="run.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.js"></script>
+    <script type="text/javascript" src="lib/canvasRelMouseCoords.plugin.js"></script>
+    <script type="text/javascript" src="src/Game.js"></script>
+    <script type="text/javascript" src="src/Board.js"></script>
+    <script type="text/javascript" src="src/Cell.js"></script>
+    <script type="text/javascript" src="run.js"></script>
 </body>
 </html>
