@@ -1,0 +1,11 @@
+body {
+    margin-left: 20px;
+}
+
+#titles {
+    min-height: 135px;
+}
+
+#play-area {
+    margin: 20px;
+}

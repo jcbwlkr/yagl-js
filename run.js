@@ -21,15 +21,14 @@ function pause() {
 }
 
 function resize() {
-    var width = document.getElementById("play-area").offsetWidth - 20;
-    var height = document.documentElement.clientHeight - document.getElementById("titles").offsetHeight - 20;
+    var width = document.getElementById("play-area").offsetWidth;
+    var height = document.documentElement.clientHeight - 40;
 
     console.log(width);
     // Sane minimums
     width  = Math.max(width, 240);
     height = Math.max(height, 240);
 
-    console.log("Resizing here, boss: " + width + " " + height);
     game.resizeBoard(width, height);
 }
 
