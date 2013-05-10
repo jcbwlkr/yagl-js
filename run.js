@@ -21,7 +21,7 @@ function pause() {
 }
 
 function resize() {
-    var width = document.getElementById("play-area").offsetWidth;
+    var width = document.getElementById("play-area").offsetWidth - 50;
     var height = document.documentElement.clientHeight - 40;
 
     console.log(width);
