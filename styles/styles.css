@@ -2,10 +2,48 @@ body {
     margin-left: 20px;
 }
 
-#titles {
-    min-height: 135px;
+#container-fluid {
+    min-width: 310px;
 }
 
 #play-area {
     padding: 20px;
+}
+
+@media (max-width: 767px) {
+    body {
+        margin-left: 0px;
+    }
+    #play-area {
+        padding: 0px;
+    }
+    #buttons {
+        float: right;
+        line-height: 1em;
+        padding-top: 1.3em;
+    }
+    .btn-block {
+        display: inline;
+        width: auto;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .btn-block + .btn-block {
+        margin-top: 0px;
+    }
+    .btn span {
+        display: none;
+    }
+    #description {
+        display: none;
+    }
+    #attribution {
+        display: none;
+    }
+    #controls {
+        display: none;
+    }
+    #title {
+        float: left;
+    }
 }

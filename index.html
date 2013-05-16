@@ -3,35 +3,32 @@
 <head>
     <title>yagl-js</title>
     <link rel="stylesheet" href="styles/bootstrap.css" />
+    <link rel="stylesheet" href="styles/bootstrap-responsive.css" />
     <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="stylesheet" href="styles/gh-fork-ribbon.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
     <div id="container-fluid">
-        <div class="row-fluid" id="titles">
-            <div class="span2" id="sidebar">
-                <h1>yagl-js</h1>
-                <h2>Yet Another <a href="http://en.wikipedia.org/wiki/Conway_game">Game of Life</a></h2>
-                <h4>By <a href="http://tortugas-llc.com/about">Jacob Walker</a></h4>
-                <div class="row-fluid">
-                    <span class="span8">Generation</span>
-                    <span class="span4" id="generation-number"></span>
+        <div class="row-fluid" >
+            <div class="span2" id="navbar">
+                <h1 id="title">yagl-js</h1>
+                <h2 id="description">Yet Another <a href="http://en.wikipedia.org/wiki/Conway_game">Game of Life</a></h2>
+                <h4 id="attribution">By <a href="http://tortugas-llc.com/about">Jacob Walker</a></h4>
+                <div id="controls">
+                    <label for="generation-number">Generation</label>
+                    <span id="generation-number"></span>
+                    <label for="width">Board Width</label>
+                    <input class="input-mini" type="number" min="3" max="400" name="width" id="width" value="20" />
+                    <label for="height">Board Height</label>
+                    <input class="input-mini" type="number" min="3" max="400" name="height" id="height" value="10" />
                 </div>
-
-                <div class="row-fluid">
-                    <span class="span8">Board Width</span>
-                    <input type="number" class="span4" min="3" max="400" name="width" id="width" value="20" />
+                <div id="buttons" >
+                    <button class="btn btn-block btn-inverse" id="populate"><span>Populate</span> <i class="icon-random icon-white"></i></button>
+                    <button class="btn btn-block btn-danger"  id="clear"><span>Clear</span> <i class="icon-remove icon-white"></i></button>
+                    <button class="btn btn-block btn-info"    id="evolve"><span>Evolve</span> <i class="icon-step-forward icon-white"></i></button>
+                    <button class="btn btn-block btn-success" id="playPause"></button>
                 </div>
-                <div class="row-fluid">
-                    <span class="span8">Board Height</span>
-                    <input type="number" class="span4" min="3" max="400" name="height" id="height" value="10" />
-                </div>
-                <button class="btn btn-block btn-inverse" id="populate">Populate <i class="icon-random icon-white"></i></button>
-                <button class="btn btn-block btn-danger"  id="clear">Clear <i class="icon-remove icon-white"></i></button>
-                <button class="btn btn-block btn-info" id="evolve">Evolve <i class="icon-step-forward icon-white"></i></button>
-                <button class="btn btn-block btn-success" id="playPause">Play <i class="icon-play icon-white"></i></button>
             </div>
             <div class="span10" id="play-area">
                 <canvas id="board"> </canvas>
